@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyCS_XNP9MDoWVs5lmRH9kGR2HHsHF53rUA",
+          authDomain: "chat-e08a4.firebaseapp.com",
+          projectId: "chat-e08a4",
+          storageBucket: "chat-e08a4.appspot.com",
+          messagingSenderId: "417645890401",
+          appId: "1:417645890401:web:b77f143f84b5fff7105320"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+
+  </head>
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <span class="navbar-brand" id="nombreUsuario">Chat</span>
+            <div id="botones">
+                <button class="btn btn-outline-success mr-2">Acceder</button>
+                <button class="btn btn-outline-danger mr-2">Cerrar Sesión</button>
+            </div>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
