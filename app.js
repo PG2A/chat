@@ -27,8 +27,6 @@ firebase.auth().onAuthStateChanged( user => {
 })
 
 const contenidoChat = (user) => {
-    contenidoProtegido.innerHTML = /*html*/`
-    <p class="text-center lead mt-5">Bienvenido ${user.email}</p>`
     formulario.addEventListener('submit',(e) =>{
         e.preventDefault()
         console.log(inputChat.value)
@@ -46,6 +44,24 @@ const contenidoChat = (user) => {
 
             inputChat.value = ''
     })
+
+    firebase.firestore().collection('chat').orderBy('fecha')
+        .onSnapshot(query => {
+            contenidoProtegido.innerHTML = ''
+            query.forEach(doc => {
+                console.log(doc.data())
+                if(doc.data().uid === user.uid){
+                    contenidoProtegido.innerHTML += /*html*/`<div class="d-flex justify-content-end">
+                    <span class="badge rounded-pill bg-primary">${doc.data().texto}</span>
+                    </div>`
+                } else{
+                    contenidoProtegido.innerHTML += /*html*/`<div class="d-flex justify-content-start">
+                    <span class="badge rounded-pill bg-secondary">${doc.data().texto}</span>
+                </div>`
+                }
+                contenidoProtegido.scrollTop = contenidoProtegido.scrollHeight
+            })
+        })
 }
 
 const cerrarSesion = () => {
